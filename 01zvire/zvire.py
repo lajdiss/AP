@@ -5,7 +5,7 @@ class Zvire:
         self.misto = misto
         pass
     def zvuk(self):
-        return"??"
+        return "??"
     def predstav(self):
         return f"ahoj jsem {self.jmeno}, je mi {self.vek}"
     def kdeJsi(self):

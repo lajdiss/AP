@@ -1,0 +1,22 @@
+class Hrdina:
+    def __init__(self, jmeno:str, level:int, lokace:str = "tabor"):
+        self.jmeno = jmeno
+        self.level = level
+        self.lokace = lokace
+        pass
+    def pokrik(self):
+        return "raar"
+    def predstav(self):
+        return f"ahoj jsem {self.jmeno}, mam level {self.level}"
+    def kdeses(self):
+        return f"nachazim se {self.lokace}"
+    def bez(self, nlok:str):
+        self.lokace = nlok
+        return f"jdu na {nlok} , {self.kdeses()}"
+
+hrdina = Hrdina("gragas", 167)
+print(hrdina.predstav())
+print(hrdina.pokrik())
+print(hrdina.kdeses())
+print(hrdina.bez("minecraft"))
+
