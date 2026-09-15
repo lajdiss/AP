@@ -19,8 +19,20 @@ class Motorka:
         self.stojanek = nStav
         return f" ted je stojanej {nStav}, {self.stojanek()}"
     
-    def popojed(self, spotreba):
-        self.stav_nadrze = spotreba
-        return f"spotrebovalo se {spotreba} "
+    def popojed(self, spotreba:int):
+        self.stav_nadrze -=spotreba
+        return f"spotrebovalo se {spotreba}, {self.stav_nadrze}. "
+    
+    def natankuj(self, natankovano:int):
+        self.stav_nadrze += natankovano
+        return f"natankovalo se {natankovano}, {self.stav_nadrze}"
+    
+motorka = Motorka("Jawa", 100, "Enduro")
+
+print(motorka.popojed(25))
+print(motorka.stav_nadrze)
+print(motorka.stav_nadrze)
+print(motorka.popojed(25))
+
     
     
