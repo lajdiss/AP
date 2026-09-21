@@ -52,8 +52,25 @@ class Kocka(Zvire):
             return f"{self.jmeno} vrniii"
         else:
             return f"{self.jmeno} nenechala se pohladit skrabla te"
+        
+class Papousek(Zvire):
+    def __init__(self, jmeno, vek, barvaP, misto = "klec"):
+        super().__init__(jmeno, vek, misto)
+        self.barvaP = barvaP
 
-Ementalek = Kocka("Ementalek", 1, "černý")
+    def zvuk(self):
+        return"Pip, pip, pi pi, pap"
+    
+    def mluv(self, coRict:str):
+        self.opakuj = coRict
+        return f"{self.jmeno} opakuj : {coRict}! {coRict}"
+    
+Papuch = Papousek("Rio", 6, "Modrá")
+print(Papuch.zvuk())
+print(Papuch.mluv("bla, bla"))
+
+print("-" * 20)
+Ementalek = Kocka("Ementalek", 1, "černa")
 print(Ementalek.jmeno)
 print(Ementalek.mnouk())
 print(Ementalek.utok())
