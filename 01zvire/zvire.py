@@ -1,3 +1,4 @@
+import random
 class Zvire:
     def __init__(self, jmeno:str, vek:int, misto:str = "bouda"):
         self.jmeno = jmeno
@@ -14,6 +15,62 @@ class Zvire:
     def bez(self, nMisto:str):
         self.misto = nMisto
         return f"presunul jsem se na {nMisto}. {self.kdeJsi()}"
+    
+class Pes(Zvire):
+    def __init__(self, jmeno, vek, plemeno, misto = "bouda"):
+        super().__init__(jmeno, vek, misto)
+        self.plemeno = plemeno
+
+    def zvuk(self):
+        return"Haf"
+    
+    def aport(self):
+        return f"{self.jmeno} prinesl micek"
+    
+    def vycesat(self):
+        if(random.randint(0,1) > 0):
+            return f"{self.jmeno} utekl"
+        else:
+            return f"{self.jmeno} nechal se vycesat"
+        
+    def predstav(self):
+        return f"{super().predstav()} jsem {self.plemeno}"
+    
+class Kocka(Zvire):
+    def __init__(self, jmeno, vek, barva, misto = "pokoj"):
+        super().__init__(jmeno, vek, misto)
+        self.barva = barva
+
+    def mnouk(self):
+        return"mnau"
+    
+    def utok(self):
+        return f"{self.jmeno} te poskrabala"
+    
+    def pohladit(self):
+        if(random.randint(0,1) > 0):
+            return f"{self.jmeno} vrniii"
+        else:
+            return f"{self.jmeno} nenechala se pohladit skrabla te"
+
+Ementalek = Kocka("Ementalek", 1, "černý")
+print(Ementalek.jmeno)
+print(Ementalek.mnouk())
+print(Ementalek.utok())
+print(Ementalek.pohladit())
+
+print("-" * 25)
+    
+hugo = Pes("Hugo", 5, "pejsek", "výřivka")
+
+print(hugo.jmeno)
+print(hugo.zvuk())
+print(hugo.predstav())
+print(hugo.aport())
+print(hugo.vycesat())
+print(hugo.kdeJsi())
+
+print("-" * 25)
         
     
 
@@ -23,7 +80,10 @@ print(zvire.kdeJsi())
 print(zvire.zvuk())
 print(zvire.bez("obed"))
 
+print("-" * 20)
 
 zvire2 = Zvire("cokl", 0.5,"sklep")
 print(zvire2.predstav())
 print(zvire.kdeJsi())
+
+print("-" * 20)
