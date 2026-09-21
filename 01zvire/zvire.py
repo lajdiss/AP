@@ -65,6 +65,42 @@ class Papousek(Zvire):
         self.opakuj = coRict
         return f"{self.jmeno} opakuj : {coRict}! {coRict}"
     
+class Had(Zvire):
+    def __init__(self, jmeno, vek, delkaVcm:int, jedovatej:bool, misto = "terarium"):
+        super().__init__(jmeno, vek, misto)
+        self.delkaVcm = delkaVcm
+        self.jedovatej = jedovatej
+    
+    def zvuk(self):
+        return"Tsssssssssssssssss"
+    
+    def ustknuti(self):
+        if self.jedovatej:
+            return f"POZOR {self.jmeno} te ustknul a je jednovaty"
+        else:
+            return f"chill {self.jmeno} te kousnul, ale neni jedovatej"
+    
+    def predstav(self):
+        if self.jedovatej:
+            typ = "jedovaty"
+        else:
+            typ = "skrtic"
+        return f"SSssssSSSsssSssSs . . . já jsem {self.jmeno}, merim {self.delkaVcm} a jsem {typ}"
+    
+
+        
+        
+hadík2 = Had("hadice", 2, 5, False)
+hadík = Had("hadak", 120, 20, True)
+print(hadík.predstav())
+print(hadík.ustknuti())
+
+print("-" * 20)
+print(hadík2.predstav())
+print(hadík2.ustknuti())
+
+print("-" * 20)
+    
 Papuch = Papousek("Rio", 6, "Modrá")
 print(Papuch.zvuk())
 print(Papuch.mluv("bla, bla"))
@@ -104,3 +140,10 @@ print(zvire2.predstav())
 print(zvire.kdeJsi())
 
 print("-" * 20)
+
+zoo = [Papuch, hadík, Ementalek, hugo]
+
+for obyvatel in zoo:
+    print(obyvatel.zvuk())
+    print(obyvatel.predstav())
+    print("-" * 20)
