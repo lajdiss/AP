@@ -143,7 +143,7 @@ print("-" * 20)
 
 zoo = [Papuch, hadík, Ementalek, hugo]
 
-for obyvatel in zoo:
+for obyvatel in zoo: #polymorfismus
     print(obyvatel.zvuk())
     print(obyvatel.predstav())
     print("-" * 20)
