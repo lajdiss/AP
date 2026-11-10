@@ -70,13 +70,49 @@ class Garage:
         pass
 
     def addCar(self, car:Car):
-        self.cars.append
+        self.cars.append(car)
         return f"Do garaze {self.name} bylo pridano auto {car.brand} {car.model} rok {car.year}"
+    
+    def showCars(self):
+        if len(self.cars) == 0:
+            print(f"V garazi {self.name} neni zadne auto")
+        else:
+            print(f"Auto v garazi : {self.name}")
+            for car in self.cars:
+                print("-->", car)
+
+    def oldestCar(self):
+        if len(self.cars) == 0:
+            return None
+        theoldest = min(self.cars, key= lambda a: a.year)
+        return theoldest
+
+    def avgFuel(self):
+        if len(self.cars) == 0:
+            return 0
+        return sum(car.fuel for car in self.cars)/len(self.cars)
 
 garage = Garage("Housebox")
 print(garage.addCar(car1))
 print(garage.addCar(car2))
 print(garage.addCar(car3))
 print("--" * 40)
+garage.showCars()
+print("-----Nejstarsi auto-------")
+oldest = garage.oldestCar()
+if oldest:
+    print(f"Nejstarsi auto v garazi je {oldest.brand} {oldest.model} {oldest.year}")
 
+print("-------Prumerna hodnota paliva-------")
+print(f"{garage.avgFuel():.1f} %")
 
+print("-------Jizda specifickeho auto v garazi---------")
+print(garage.cars[2].move())
+
+print("--------Jizda vsech aut v garazi--------")
+for car in garage.cars:
+    print(car.move())
+
+print("----Hromadna STK-----------")
+for car in garage.cars:
+    print(car.stk())
